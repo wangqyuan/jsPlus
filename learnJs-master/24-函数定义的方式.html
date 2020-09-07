@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 1 函数声明
+    // function fn() {
+    //   console.log('test')
+    // }
+    // fn()
+
+    // 2 函数表达式
+    // var fn = function() {
+    //   console.log('test2')
+    // }
+
+    // 函数声明和函数表达式的区别
+    // fn()
+    // function fn() {
+    //   console.log('fn')
+    // }
+
+    // fn1() // 报错，因为js代码是从上往下执行的，并且在执行前先会将代码里的函数和变量提升，fn是一个函数 fn1是一个变量 都会被默认在执行前先处理，所以fn()不会报错，fn1是undefined不是一个函数
+    // var fn1 = function() {
+    //   console.log('fn1')
+    // }
+
+    // 根据条件声明函数
+    // 现代浏览器ES5 不会提升if语句中的函数声明
+    // if(true) {
+    //   function fn2() {
+    //     console.log('fn2 - true')
+    //   }
+    // } else {
+    //   function fn2() {
+    //     console.log('fn2 - false')
+    //   }
+    // }
+    // fn2()
+    
+    // 在老的IE版本中，if语句中的函数声明也会提升
+    var fn
+    if(true) {
+      fn = function() {
+        console.log('fn - true')
+      }
+    } else {
+      fn = function() {
+       console.log('fn - false')
+      }
+    }
+    fn()
+  </script>
+</body>
+</html>

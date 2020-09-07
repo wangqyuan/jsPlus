@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <img src="./img/原型链.png" alt="">
+  <script>
+    // 构造函数      原型对象                     实例/对象   之间的关系
+    // Student  Student.prototype或s1.__proto__    s1
+    function Student(name, age, sex) {
+      this.name = name
+      this.age = age
+      this.sex = sex
+
+      this.sayHi = function() {
+        console.log('test')
+      }
+    }
+
+    console.dir(Student.prototype)
+    Student.prototype.sayHi = function() {
+      console.log('大家好 我是' + this.name)
+    }
+
+    // 通过Student构造函数，创建的对象，可以访问Student.prototype中的成员
+    var s1 = new Student('cb1', 18, '男')
+    var s2 = new Student('cb2', 18, '女')
+
+    // Studnet构造函数的原型对象
+    var o = s1.__proto__
+    console.dir(o.__proto__)// o.__proto__ Object的原型对象
+
+    // o.__proto__ Object的原型对象
+    var o1 = o.__proto__
+    console.dir(o1.__proto__) // null
+  </script>
+</body>
+</html>

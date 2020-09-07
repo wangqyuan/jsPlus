@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    console.log('start')
+    
+    setTimeout(function() { // setTimeout作用是把函数内第一个参数内的方法放入浏览器的任务队列里，然后js继续往下执行，等下面所有执行栈代码执行完毕，然后到任务队列里执行这个方法
+      console.log('timeout')
+    }, 0)
+
+
+
+
+    console.log('end')
+  </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 借用构造函数
+    function Person(name, age, sex) {
+      this.name = name
+      this.age = age
+      this.sex = sex
+    }
+    Person.prototype.sayHi = function() { // 借用构造函数无法继承原型上的方法
+      console.log(this.name)
+    }
+
+    // 子类型
+    function Student(name, age, sex, score) {
+      Person.call(this, name, age, sex) // call 修改Person的this指向
+      this.score = score
+    }
+
+    var stu1 = new Student('zs', 18, '男', 100)
+    console.dir(stu1)
+  </script>
+</body>
+</html>

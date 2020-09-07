@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    console.log('start')
+
+    for(var i = 0; i < 3; i++) {
+
+      // 闭包
+      (function(i) {
+        setTimeout(() => {
+          console.log(i)
+        }, 0);
+      })(i) // 每次循环把i记录到内部作用域
+      
+    }
+
+    console.log('end')
+  </script>
+</body>
+</html>

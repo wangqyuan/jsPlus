@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <ul id="a">
+    <li>A</li>
+    <li>B</li>
+    <li>C</li>
+    <li>D</li>
+  </ul>
+  <script>
+    // 1 给li注册点击事件
+    // 方式一  给元素增加属性
+    // var heros = document.getElementById('a')
+    // var lists = heros.children
+    // for(var i = 0; i < lists.length; i++) {
+    //   var li = lists[i]
+    //   li.index = i
+    //   li.onclick = function() {
+    //     // 2 点击li的时候输出当前li对应的索引
+    //     console.log(i, this.index) // 4 因为注册事件和点击事件不是一起执行，循环最后i的结果是4
+    //   }
+    // }
+    
+    // 方式二  闭包  实际开发不推荐使用闭包解决此类问题，因为闭包不会释放作用域增加了开销
+    var heros = document.getElementById('a')
+    var lists = heros.children
+    for(var i = 0; i < lists.length; i++) {
+      var li = lists[i]
+
+      ;(function(i) {
+        li.onclick = function() {
+          // 2 点击li的时候输出当前li对应的索引
+          console.log(i) // 4 因为注册事件和点击事件不是一起执行，循环最后i的结果是4
+        }
+      })(i)
+    }
+  </script>
+</body>
+</html>

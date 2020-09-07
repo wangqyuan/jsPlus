@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function fn(x, y) {
+      // 函数内部有一个私有的变量 arguments
+      console.log(arguments)
+
+      // // 伪数组  获取到的是函数的实参
+      // console.log(fn.arguments)
+      // // 函数的调用者，在全局返回调用的时候是null
+      // console.log(fn.caller)
+      // // 函数的名称
+      // console.log(fn.name)
+      // // 函数的形参个数
+      // console.log(fn.length)
+    }
+    // console.dir(fn)
+
+    function test() {
+      fn(1, 2, 3)
+    }
+    test()
+
+    function max() {
+      // 当函数的参数不固定的时候，在函数内部，可以通过arguments获取到实际传过来的参数
+      var max = arguments[0]
+      for(var i = 0; i < arguments.length; i++) {
+        if(max < arguments[i]) {
+          max = arguments[i]
+        }
+      }
+      return max
+    }
+    console.log(max(1, 2, 5, 33 ,25))
+  </script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 构造函数
+    // function Student(name, age, sex) {
+    //   this.name = name
+    //   this.age = age
+    //   this.sex = sex
+
+    //   // 多个对象，会存储多个sayHi方法
+    //   this.sayHi = function() {
+    //     console.log('大家好 我是' + this.name)
+    //   }
+    // }
+
+    // var s1 = new Student('cn1', 18, '男')
+    // var s1 = new Student('cn2', 18, '女')
+    // s1.sayHi()
+    // s2.sayHi()
+    // console.log(s1.sayHi === s2.sayHi)
+
+    // 解决sayHi存储多份的问题
+    function Student(name, age, sex) {
+      this.name = name
+      this.age = age
+      this.sex = sex
+
+      // 指向全局方法，解决构造函数创建多个sayHi方法
+      this.sayHi = sayHi
+    }
+
+    // 全局方法
+    function sayHi() {
+      console.log('大家好 我是' + this.name) // *这里this指向，谁调用this指向谁
+    }
+
+    var s1 = new Student('cn1', 18, '男')
+    var s2 = new Student('cn2', 18, '女')
+    s1.sayHi()
+    s2.sayHi()
+    console.log(s1.sayHi === s2.sayHi)
+  </script>
+</body>
+
+</html>

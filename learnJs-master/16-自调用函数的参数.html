@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+     // ------------------------Tools----------------------
+    // 自调用函数传入 window的目的，是让变量名可以被压缩
+    // 在老版本的浏览器中 undefined可以被重新赋值
+    ;(function(window, undefined) {
+      var Tools = {
+        getRandom: function(min, max) {
+          return Math.floor(Math.random() * (max - min + 1)) + min
+        }
+      }
+      window.Tools = Tools
+    })(window, undefined)
+  </script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 构造函数      原型对象                     实例/对象   之间的关系
+    // Student  Student.prototype或s1.__proto__    s1
+    function Student(name, age, sex) {
+      this.name = name
+      this.age = age
+      this.sex = sex
+
+      this.sayHi = function() {
+        console.log('test')
+      }
+    }
+
+    // console.dir(Student.prototype)
+    Student.prototype.sayHi = function() {
+      console.log('大家好 我是' + this.name)
+    }
+
+    //给构造函数的原型增加一个属性
+    Student.prototype.test = 'abc'
+
+    // 通过Student构造函数，创建的对象，可以访问Student.prototype中的成员
+    var s1 = new Student('cb1', 18, '男')
+    var s2 = new Student('cb2', 18, '女')
+
+    // s1对象的原型对象的原型对象 === Object构造函数的原型对象
+    console.log(s1.__proto__.__proto__ === Object.prototype)
+
+    // 所有的对象都有toString()方法
+    // console.log(s1.toString())
+    // console.dir(s1)
+    // console.dir(s1.__proto__)
+    // console.dir(s1.__proto__.__proto__)
+
+    // 读取属性  现有对象本身查找test属性，如果没有找到的话，回去原型链上找
+    console.log(s1.name, s1.test)
+
+    // 设置属性
+    s1.name = 'xxx'
+    // test属性在原型对象上  而在设置属性的时候，不会搜索原型链，而是直接给对象新增一个test属性
+    s1.test = '66'
+    console.log(s1.name, s1.test)
+    console.log(s2.name, s2.test)
+  </script>
+</body>
+</html>

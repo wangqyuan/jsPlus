@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 打印学生成绩
+    // 1、面向过程的方法
+    // 1.1记录学生的成绩
+    // 1.2打印学生的成绩
+    var stu1 = { name: 'c1', subject: '语文', score: 90 }
+    var stu2 = { name: 'c2', subject: '语文', score: 80 }
+    console.log(stu1.name, stu1.subject, stu1.score)
+    console.log(stu2.name, stu2.subject, stu2.score)
+
+    // 2、面向对象的方法
+    // 创建一个模板，用于创建对象（实例instance）
+    // 在javascript中创建对象的模板是构造函数，而在其他语言中创建对象的模板是类
+    function Student(name, subject, score) {
+      // 当使用new关键字创建一个Student对象是，内部会产生一个对象通过this可以指向
+      this.name = name
+      this.subject = subject
+      this.score = score
+
+      this.printScore = function() {
+        console.log(this.name, this.subject, this.score)
+      }
+    }
+    var stu3 = new Student('c3', '语文', 90)
+    var stu4 = new Student('c4', '语文', 80)
+    stu3.printScore()
+    stu4.printScore()
+  </script>
+</body>
+</html>

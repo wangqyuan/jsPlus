@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 思考1
+    // var name = 'The Window'
+    // var obj = {
+    //   name: 'my object',
+    //   getNameFunc: function() {
+    //     return function() {
+    //       return this.name
+    //     }
+    //   }
+    // }
+    // console.log(obj.getNameFunc()())  ==   var fn = obj.getNameFunc(); fn();
+    // var fn = obj.getNameFunc()
+    // fn() // The Window
+
+    // 思考2
+    var name = 'The Window'
+    var obj = {
+      name: 'my object',
+      getNameFunc: function() {
+        var that = this
+        return function() {
+          return that.name // 产生闭包
+        }
+      }
+    }
+    console.log(obj.getNameFunc()()) // my object
+  </script>
+</body>
+</html>

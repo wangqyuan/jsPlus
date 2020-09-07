@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 1、new Object()
+    var hero = new Object() // 空对象
+    hero.blood = 100
+    hero.name = 'cb'
+    hero.weapon = '🗡'
+    hero.attack = function() {
+      console.log(this.weapon + '攻击敌人')
+    }
+
+    // 2、对象字面量
+    var hero2 = { // 空对象
+      blood: 100,
+      name: 'cb2',
+      weapon: '🗡',
+      attack: function() {
+        console.log(this.weapon + '攻击敌人')
+      }
+    }
+    hero2.attack()
+
+    // 3、工厂函数创建多个对象，弊端是无法判断对象具体类型
+    function createHero(name, blood, weapon) {
+      var o = new Object()
+      o.name = name
+      o.blood = blood
+      o.weapon = weapon
+      o.attack = function() {
+        console.log(this.weapon + '攻击敌人')
+      }
+      return o
+    }
+    var hero3 = createHero('cb3', 100, '🗡')
+    var hero4 = createHero('cb4', 199, '🗡')
+    console.log(typeof hero3) // object
+    // console.log(hero3 instanceof ????) 英雄没有具体类型
+    var arr = []
+    console.log(typeof arr) // object
+    console.log(arr instanceof Array) // true
+  </script>
+</body>
+</html>

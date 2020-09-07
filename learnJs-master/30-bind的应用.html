@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 3 bind的应用
+    var obj = {
+      name: 'zs',
+      fn: function() {
+        setInterval(function() {
+          console.log(this.name)
+        }.bind(this), 1000)
+      }
+    }
+    obj.fn()
+
+    btn.onclick = function() {
+      // 事件处理函数的this 是触发该事件的对象
+      
+    }.bind(this) // 通过bind改变事件处理函数中this的指向
+  </script>
+</body>
+</html>

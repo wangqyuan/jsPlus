@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // call、bind、apply可以改变函数中的this
+    // 函数时一个对象
+    // var fn = new Function()
+    function fn() {}
+    // 证明函数时Function的实例
+    console.log(fn.__proto__ === Function.prototype) // true
+
+    console.dir(fn)
+
+    function fun(x, y) {
+      console.log(this)
+      console.log(x + y)
+    }
+    fun(5, 6)
+
+    // 1 调用函数，改变函数的this
+    // 2 第一个参数设置函数内部的this指向，其他参数，对应函数的其他参数
+    // 3 函数的返回值 call的返回值就是函数的返回值
+    var obj = {
+      name: 'zs'
+    }
+    fun.call(obj, 5, 6)
+    
+  </script>
+</body>
+</html>

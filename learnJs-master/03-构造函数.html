@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 3、工厂函数创建多个对象，弊端是无法判断对象具体类型
+    // function createHero(name, blood, weapon) {
+    //   var o = new Object()
+    //   o.name = name
+    //   o.blood = blood
+    //   o.weapon = weapon
+    //   o.attack = function() {
+    //     console.log(this.weapon + '攻击敌人')
+    //   }
+    //   return o
+    // }
+    // var hero3 = createHero('cb3', 100, '🗡')
+    // var hero4 = createHero('cb4', 199, '🗡')
+
+    // 构造函数 -- 构造对象的函数
+    function Hero(name, blood, weapon) {
+      this.name = name
+      this.blood = blood
+      this.weapon = weapon
+      this.attack = function () {
+        console.log(this.weapon + '攻击了敌人')
+      }
+    }
+    // 1、会在内存中创建一个空对象
+    // 2、设置构造函数的this，让this指向刚刚创建好的对象
+    // 3、执行构造函数的代码
+    // 4、返回对象
+    var hero1 = new Hero('cb', 100, '🗡')
+    hero1.attack()
+    console.log(typeof hero1) // 无法通过typeof获取对象的具体类型
+
+    // 获取对象的具体类型 constructor
+    console.log(hero1.constructor, hero1.constructor === Hero) // 返回Hero构造函数，    true 判断对象的具体类型，不建议使用这种方法判断因为hero1.constructor的指向可以被改变
+    var arr = []
+    console.log(arr.constructor) // ƒ Array() { [native code] }    返回Array构造函数，因为是系统提供的无法打印出源代码
+
+    // instanceof 判断某个对象是否是某个构造函数的实例/对象
+    console.log(hero1 instanceof Hero, arr instanceof Array)
+  </script>
+</body>
+
+</html>

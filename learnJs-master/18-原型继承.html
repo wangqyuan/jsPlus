@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 继承: 类型和类型之间的关系
+    // 学生类型  老师类型 -> Person类型
+    // 继承目的：把子类型中共同类型提取到父类型中，代码重用
+
+    // 父类型
+    function Person() {
+      this.name = 'zs'
+      this.age = 18
+      this.sex = '男'
+    }
+
+    // 子类型
+    function Student() {
+      this.score = 100
+    }
+
+    // 原型继承：无法设置构造函数的参数，只有第一次修改原型是能传参
+    Student.prototype = new Person()
+
+    var stu1 = new Student()
+    console.log(stu1.constructor)
+
+    Student.prototype.constructor = Student
+
+    console.log(stu1.constructor, stu1)
+
+    // 子类型
+    function Teacher() {
+      this.salary = 3000
+    }
+
+    
+  </script>
+</body>
+</html>

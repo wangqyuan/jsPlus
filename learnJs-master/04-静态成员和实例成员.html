@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // Math 数学对象不是构造函数
+
+    var MyMath = {
+      PI: 3.1415926,
+      max: function () { },
+      min: function () { }
+    }
+    // 静态成员  直接使用对象调用的  工具中使用静态成员
+    MyMath.PI // 调用静态成员
+    MyMath.max()
+
+    // 实例成员  对象的另一种说法  构造函数中的成员就是实例成员  当有很多个对象的时候使用构造函数来创建
+    function Person(name, age) {
+      this.name = name
+      this.age = age
+      this.sayHi = function () {
+
+      }
+    }
+    var p = new Person('cb', 18)
+    p.name // 调用实例成员
+    console.log('p.name', p.name);
+    p.sayHi()
+  </script>
+</body>
+
+</html>

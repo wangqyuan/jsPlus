@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // (function() {
+    //   console.log(1)
+    // })()  当连续出现两个自调用函数时会报错，需要在自调用函数前加;表示结束，否则会被下个自调用函数解析成undefined()
+    
+    ;(function() {
+      console.log(1)
+    })();
+
+    ;(function() {
+      console.log(2)
+    })()
+
+    var fn = function() {
+      console.log(1)
+    }
+
+    ;(function() {  // 这里如果前面不加;也会报错,会被浏览器默认跟上面的方法解析成一个自调用函数
+      console.log(2)
+    })()
+  </script>
+</body>
+</html>

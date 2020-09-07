@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 2 apply的应用
+    // fn.apply(,[])
+
+    // Math.max(1,2,3)
+
+    var arr = [1,35, 3, 6, 9]
+    // Math.max不能求数组最大值
+    // console.log(Math.max(arr))
+
+    console.log(Math.max.apply(Math, arr))
+    console.log(arr)
+    console.log.apply(console, arr)
+  </script>
+</body>
+</html>
