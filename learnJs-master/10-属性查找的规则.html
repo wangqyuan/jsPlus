@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 </head>
+
 <body>
   <script>
     // 构造函数      原型对象                     实例/对象   之间的关系
@@ -14,13 +16,13 @@
       this.age = age
       this.sex = sex
 
-      this.sayHi = function() {
+      this.sayHi = function () {
         console.log('test')
       }
     }
 
     // console.dir(Student.prototype)
-    Student.prototype.sayHi = function() {
+    Student.prototype.sayHi = function () {
       console.log('大家好 我是' + this.name)
     }
 
@@ -44,11 +46,12 @@
     console.log(s1.name, s1.test)
 
     // 设置属性
-    s1.name = 'xxx'
+    s1.name = 'wqy'
     // test属性在原型对象上  而在设置属性的时候，不会搜索原型链，而是直接给对象新增一个test属性
     s1.test = '66'
     console.log(s1.name, s1.test)
     console.log(s2.name, s2.test)
   </script>
 </body>
+
 </html>
