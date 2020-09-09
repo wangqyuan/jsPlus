@@ -3,4 +3,11 @@
   height: 600px;
   background: lightgray;
   position: relative;
+  
+}
+#map div:first-child{
+  background: url('../image/food.jpg');
+}
+#map div:not(:first-child){
+  background: url('../image/snake.jpg');
 }

@@ -5,10 +5,10 @@
 // }
 
 // 自调用函数  开启一个新的作用域，避免匿名冲突
-(function() {
-  
+(function () {
+
   // 记录上一次创建的食物，为删除做准备
-  var elements = []
+  var elements = [] // 食物虽然就一个方块一个元素， 但是蛇有多个方块多个元素，统一性，用数组
 
   function Food(options) {
     options = options || {}
@@ -21,7 +21,7 @@
 
   }
 
-  Food.prototype.render = function(map) {
+  Food.prototype.render = function (map) {
     // 删除之前创建的食物
     remove()
 
@@ -33,7 +33,7 @@
     var div = document.createElement('div')
     map.appendChild(div)
 
-    elements.push(div)
+    elements.push(div) // 为删除做准备
 
     // 设置div样式
     div.style.left = this.x + 'px'
@@ -44,9 +44,10 @@
     div.style.backgroundColor = this.color
   }
 
+  // 不写在原型上，仅仅供render使用， 不给其他人通过Food.调用
   function remove() {
-    for(var i = elements.length - 1; i >= 0; i--) {
-      // 删除div和数组中的元素
+    for (var i = elements.length - 1; i >= 0; i--) {
+      // .removeChild是父元素删除子元素的方法，先用parentNode找到父元素，然后调用removeChild删除食物。
       elements[i].parentNode.removeChild(elements[i])
       elements.splice(i, 1)
     }

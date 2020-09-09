@@ -51,7 +51,7 @@
   function runSnake() {
     var timerId = setInterval(function() {
       // 让蛇走一格
-      // 在定时器的function中this指向window
+      // *在定时器setInterval的function中this指向window
       // 要获取游戏对象中的蛇属性
       this.snake.move(this.food, this.map)
       this.snake.render(this.map)
